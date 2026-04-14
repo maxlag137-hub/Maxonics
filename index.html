@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>PhysicsTester — Minimal Physics Sandbox</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <button id="settingsButton" class="icon-button" aria-label="Settings">⚙️</button>
+
+    <main class="app-shell">
+      <canvas id="scene" width="800" height="800" aria-label="Physics Sandbox"></canvas>
+
+      <div id="controls" class="controls"></div>
+    </main>
+
+    <div id="settingsModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="settingsTitle">
+      <div class="modal-card">
+        <h2 id="settingsTitle">Settings</h2>
+        <label for="languageSelect" class="field-label" id="languageLabel">Language</label>
+        <select id="languageSelect" class="select-field">
+          <option value="ru">Русский</option>
+          <option value="en">English</option>
+        </select>
+
+        <button id="soonButton" class="menu-button" type="button">Soon</button>
+        <button id="backButton" class="menu-button" type="button">Back</button>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
