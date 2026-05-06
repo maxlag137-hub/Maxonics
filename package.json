@@ -1,0 +1,10 @@
+{
+  "name": "math-trainer-game",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Браузерная игра Математический тренажёр",
+  "scripts": {
+    "start": "node server.js",
+    "check": "node --check src/main.js && node --check server.js"
+  }
+}
