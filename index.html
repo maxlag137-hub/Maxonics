@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Браузерная игра Математический тренажёр" />
+    <title>Математический тренажёр</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./src/styles.css" />
+  </head>
+  <body>
+    <div id="app">
+      <section id="platformScreen" class="screen screen--active hero-screen">
+        <div class="glass-card hero-card">
+          <span class="eyebrow">Интерактивная браузерная игра</span>
+          <h1>Математический тренажёр</h1>
+          <p>Собирай выражения, запускай ответы в кубики и тренируй счёт в динамичной 3D-арене.</p>
+          <div class="platform-actions">
+            <button class="primary-btn platform-btn" data-platform="desktop">ПК</button>
+            <button class="secondary-btn platform-btn" data-platform="mobile">Телефон</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="menuScreen" class="screen menu-screen">
+        <div class="glass-card menu-card">
+          <span class="eyebrow">Платформа: <b id="platformLabel">ПК</b></span>
+          <h2>Главное меню</h2>
+          <button id="playBtn" class="primary-btn wide-btn">Играть</button>
+          <button id="settingsBtn" class="secondary-btn wide-btn">Настройки</button>
+        </div>
+      </section>
+
+      <section id="settingsScreen" class="screen settings-screen">
+        <div class="glass-card settings-card">
+          <span class="eyebrow">Сложность влияет на скорость, числа и операции</span>
+          <h2>Настройки</h2>
+          <div class="difficulty-grid" role="radiogroup" aria-label="Выбор сложности">
+            <button class="difficulty-card is-selected" data-difficulty="easy" role="radio" aria-checked="true">
+              <strong>Лёгкая</strong>
+              <span>Кубы медленнее, числа 10–45, + − ×</span>
+            </button>
+            <button class="difficulty-card" data-difficulty="medium" role="radio" aria-checked="false">
+              <strong>Средняя</strong>
+              <span>Числа 30–99, + − × ÷</span>
+            </button>
+            <button class="difficulty-card" data-difficulty="hard" role="radio" aria-checked="false">
+              <strong>Сложная</strong>
+              <span>Быстрые кубы, числа до 169, доступна степень</span>
+            </button>
+          </div>
+          <button id="backToMenuBtn" class="primary-btn wide-btn">Готово</button>
+        </div>
+      </section>
+
+      <main id="gameScreen" class="screen game-screen">
+        <header class="hud glass-card">
+          <button id="backBtn" class="icon-btn" aria-label="Вернуться в меню">←</button>
+          <div><span>Очки</span><strong id="score">0</strong></div>
+          <div><span>Комбо</span><strong id="combo">×1</strong></div>
+          <div><span>Время</span><strong id="timer">02:00</strong></div>
+          <div><span>Рекорд</span><strong id="bestScore">0</strong></div>
+        </header>
+
+        <section class="tools-panel glass-card" aria-label="Панель элементов">
+          <div class="panel-heading">
+            <h3>Элементы</h3>
+            <button id="clearBtn" class="tiny-btn">Очистить</button>
+          </div>
+          <p>Перетащите числа и операции в центр или нажмите на них.</p>
+          <div id="numberTiles" class="tile-grid"></div>
+          <div id="operationTiles" class="tile-row"></div>
+          <div class="result-bank">
+            <h4>Результаты</h4>
+            <div id="resultTiles" class="tile-row result-row"></div>
+          </div>
+        </section>
+
+        <section class="builder-panel glass-card" aria-label="Окно выражения">
+          <span class="eyebrow">Составь выражение</span>
+          <div id="expressionDrop" class="expression-drop" tabindex="0" aria-label="Зона составления выражения">
+            <span class="placeholder">_= перетащите элементы</span>
+          </div>
+          <div class="builder-result">
+            <span>Результат</span>
+            <strong id="expressionResult">—</strong>
+          </div>
+          <div class="builder-actions">
+            <button id="calculateBtn" class="primary-btn">Получить число</button>
+            <button id="fireBtn" class="secondary-btn">Запустить в цель</button>
+          </div>
+          <p class="hint">Получите число кубика и отправьте его в нижнюю зону столкновения.</p>
+        </section>
+
+        <section class="arena glass-card" aria-label="Игровая арена">
+          <div class="arena-topline">
+            <h3>3D-кубики</h3>
+            <span id="difficultyBadge">Лёгкая</span>
+          </div>
+          <div id="cubeField" class="cube-field"></div>
+          <div id="collisionZone" class="collision-zone">Зона столкновения</div>
+        </section>
+      </main>
+    </div>
+
+    <template id="tileTemplate">
+      <button class="tile" draggable="true"></button>
+    </template>
+
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>
