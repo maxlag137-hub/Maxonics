@@ -1,0 +1,7 @@
+<Mod
+  name="Machine Gun Starter Wand"
+  description="Sets the first starter wand cast delay/recharge to 0, maxes mana, and installs Black Hole + Chain Bolt."
+  author="Maxonics"
+  version="1.0.0"
+>
+</Mod>
